@@ -29,7 +29,7 @@ unsigned int calcScore(unsigned long arr[], unsigned int start, unsigned int end
             lscore = calcScore(arr, start, i, sum, score);
             rscore = calcScore(arr, i+1, end, sum, score);
             
-            (lscore > rscore ) ? return lscore : return rscore;
+            (lscore > rscore ) ? score = lscore : score = rscore;
         }
     }
     
