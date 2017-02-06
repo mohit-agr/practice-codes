@@ -6,6 +6,15 @@
 using namespace std;
 
 
+unsigned long long getOverallSum(unsigned long arr[], unsigned int len) {
+    unsigned long long sum=0;
+    for (unsigned int i=0; i<len; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+
 unsigned int calcScore(unsigned long arr[], unsigned int start, unsigned int end, unsigned long long arrSum,                                     unsigned int score) {
     if (arrSum % 2) return score;
 
@@ -20,20 +29,11 @@ unsigned int calcScore(unsigned long arr[], unsigned int start, unsigned int end
             lscore = calcScore(arr, start, i, sum, score);
             rscore = calcScore(arr, i+1, end, sum, score);
             
-            (lscore > rscore ) ? score = lscore : score = rscore;
-            break;
+            (lscore > rscore ) ? return lscore : return rscore;
         }
     }
     
     return score;
-}
-
-unsigned long long getOverallSum(unsigned long arr[], unsigned int len) {
-    unsigned long long sum=0;
-    for (unsigned int i=0; i<len; i++) {
-        sum += arr[i];
-    }
-    return sum;
 }
 
 
